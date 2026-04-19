@@ -17,10 +17,11 @@ abstract class AppDatabase : RoomDatabase() {
         fun getInstance(context: Context): AppDatabase {
             return instance ?: synchronized(this) {
                 Room.databaseBuilder(
-                    context.applicationContext,
-                    AppDatabase::class.java,
-                    "momo_login_db"
-                ).build().also { instance = it }
+                                context.applicationContext,
+                                AppDatabase::class.java,
+                                "momo_login_db"
+                            ).fallbackToDestructiveMigration(false)
+                    .build().also { instance = it }
             }
         }
     }
