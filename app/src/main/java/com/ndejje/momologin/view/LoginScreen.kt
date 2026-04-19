@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.ndejje.momologin.R
 import com.ndejje.momologin.viewmodel.AuthUiState
 import com.ndejje.momologin.viewmodel.AuthViewModel
+import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun LoginScreen(
@@ -81,7 +82,7 @@ fun LoginScreen(
         ) {
             if (authState is AuthUiState.Loading)
                 CircularProgressIndicator(
-                    Modifier.size(24.dp),
+                    Modifier.size(dimensionResource(R.dimen.spacingLarge)),
                     color = MaterialTheme.colorScheme.onPrimary
                 )
             else Text(stringResource(R.string.btn_login))
@@ -92,3 +93,57 @@ fun LoginScreen(
         }
     }
 }
+
+//@Preview(showBackground = true, showSystemUi = true)
+//@Composable
+//fun LoginScreenPreview() {
+//    MaterialTheme {
+//        // We create a mock layout that looks exactly like your LoginScreen
+//        // but doesn't require a real ViewModel to run.
+//        Column(
+//            modifier = Modifier
+//                .fillMaxSize()
+//                .padding(dimensionResource(R.dimen.spacingMedium)),
+//            verticalArrangement = Arrangement.Center,
+//            horizontalAlignment = Alignment.CenterHorizontally
+//        ) {
+//            Text(
+//                text = "Login",
+//                style = MaterialTheme.typography.headlineMedium
+//            )
+//            Spacer(Modifier.height(dimensionResource(R.dimen.spacingExtraLarge)))
+//
+//            OutlinedTextField(
+//                value = "Xavier_Dev",
+//                onValueChange = {},
+//                label = { Text("Username") },
+//                modifier = Modifier.fillMaxWidth()
+//            )
+//            Spacer(Modifier.height(dimensionResource(R.dimen.spacingMedium)))
+//
+//            OutlinedTextField(
+//                value = "password123",
+//                onValueChange = {},
+//                label = { Text("Password") },
+//                modifier = Modifier.fillMaxWidth(),
+//                visualTransformation = PasswordVisualTransformation()
+//            )
+//            Spacer(Modifier.height(24.dp))
+//
+//            Button(
+//                onClick = {},
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .height(dimensionResource(R.dimen.buttonHeight))
+//            ) {
+//                Text("Login")
+//            }
+//
+//            Spacer(Modifier.height(dimensionResource(R.dimen.spacingMedium)))
+//
+//            TextButton(onClick = {}) {
+//                Text("Don't have an account? Register")
+//            }
+//        }
+//    }
+//}
