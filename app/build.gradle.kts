@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.core.splashscreen.v101)
+    implementation("androidx.compose.material:material-icons-extended")
     
     // Room
     implementation(libs.androidx.room.runtime)
