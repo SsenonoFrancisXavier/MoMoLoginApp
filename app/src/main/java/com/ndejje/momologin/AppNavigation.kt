@@ -1,5 +1,8 @@
 package com.ndejje.momologin
 
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -21,7 +24,15 @@ object Routes {
 fun AppNavigation(viewModel: AuthViewModel) {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Routes.LOGIN) {
+    NavHost(
+        navController = navController,
+        startDestination = Routes.LOGIN,
+        // For smooth sliding transitions
+        enterTransition = { slideInHorizontally { it } + fadeIn() },
+        exitTransition = { fadeOut() },
+        popEnterTransition = { slideInHorizontally { -it } + fadeIn() },
+        popExitTransition = { fadeOut() }
+        ) {
 
         composable(Routes.LOGIN) {
             LoginScreen(
