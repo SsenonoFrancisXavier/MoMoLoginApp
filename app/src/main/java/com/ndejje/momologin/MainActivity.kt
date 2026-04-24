@@ -19,9 +19,12 @@ import com.ndejje.momologin.model.UserRepository
 import com.ndejje.momologin.ui.theme.MoMoLoginAppTheme
 import com.ndejje.momologin.viewmodel.AuthViewModel
 import com.ndejje.momologin.viewmodel.AuthViewModelFactory
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Install splash screen
+        installSplashScreen()
         super.onCreate(savedInstanceState)
 
         // Build the dependency chain: DB → DAO → Repository → ViewModel
